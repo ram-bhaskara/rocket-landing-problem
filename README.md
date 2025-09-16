@@ -3,8 +3,8 @@
 ### Description
 
 Thrust vector control for a 3 DoF simplified rocket dynamics. Goal is to land the rocket from a random initial position and attitude to origin. 
-Final state requirements: $$ \begin{equation} [0 \pm 5\, m, 0 \pm 1\, m, 0 \pm 3^\circ, 0 \pm 1\, m/s, 
-0 \pm 0.5 \, m/s, 0 \pm 5 \, rad/s ] \end{equation}$$. Assumption (can be relaxed): all states are directly observable without any uncertainty. 
+Final state requirements: $$[0 \pm 5 m, 0 \pm 1 m,  0 \pm 3^\circ,  0 \pm 1 m/s, 
+0 \pm 0.5  m/s,  0 \pm 5  rad/s ]$$. Assumption (can be relaxed): all states are directly observable without any uncertainty. 
 
 The vehicle motion is described by only 3 Degrees of Freedom (3DoF), as follows:
 -  $x$ : lateral position
@@ -23,12 +23,11 @@ $$ \begin{equation} J = \frac{1}{2} (\mathbf{x}_N - \mathbf{x}_r)^T \mathbf{Q}_N
 \end{equation}$$ 
  
 
-The penalty on terminal states, deviation from nominal trajectory and control is a convex optimization problem solved using quadratic programming. Solver used: OSQP. See the notebook for controller block diagram.
+The penalty on terminal states, deviation from nominal trajectory, and control is a convex optimization problem solved using quadratic programming. Solver used: OSQP. See the notebook for the controller block diagram.
 
 
 ## Conclusion and Future work
-Coupled TVC and thrust control presents a challenge in accurate attitude and angular velocity control. This is a difficult control problem and minimizing oscillations in these states require very careful tuning and important a pre-planned trajectory for tracking through MPC could be helpful. This is a work in progress.
-
+Coupled TVC and thrust control present a challenge in accurate attitude and angular velocity control. This is a difficult control problem, and minimizing oscillations in these states requires meticulous tuning. Importantly, a pre-planned trajectory for tracking through MPC could be helpful. This is a work in progress.
 ## Results
 
 ### Landing trajectory
