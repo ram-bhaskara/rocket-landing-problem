@@ -41,3 +41,20 @@ Coupled TVC and thrust control present a challenge in accurate attitude and angu
 ### Control history
 
 ![control_hist.png](figures/control_hist.png)
+
+# PID Control
+[rocket3DoF.slx](Simulink/rocket3DoF.slx) is the Simulink file for cascaded PID implementation for rocket-landing control. MATLAB file and initial conditions from ipynb.
+
+## Cascaded PID control law
+
+Requires meticulous tuning for your initial conditions
+
+![PID_block.jpg](figures/PID_block.jpg)
+
+![PID_Simulink.png](figures/PID_Simulink.png)
+
+### Results: Monte Carlo Simulation
+
+Landing trajectories with randomized initial state
+
+![monte-Carlo.jpg](figures/monte-Carlo.jpg)
