@@ -3,6 +3,9 @@
 
 % To run: Check the file system
 % Cross check the simulink for data out
+
+Ts = 0.01; 
+
 simulinkFile = './rocket3DoF.slx';
 NSims = 10;
 Xstore = cell(1, NSims);
@@ -23,15 +26,16 @@ for kk = 1:10
     Xstore{kk} = traj;
 end
 
-%
+%%
 figure; 
 hold on;
 for kk = 1:NSims
     curr_traj = Xstore{kk}; 
-    plot(curr_traj(:,1), curr_traj(:,2), '-.','LineWidth', 1.25, 'Color',[.5 .5 .5]);
-    plot(curr_traj(1,1), curr_traj(1,2), 'sr','MarkerSize', 5, 'MarkerFaceColor','r');
+    p1 = plot(curr_traj(:,1), curr_traj(:,2), '-.','LineWidth', 1.25, 'Color',[.5 .5 .5]);
+    p2 = plot(curr_traj(1,1), curr_traj(1,2), 'sr','MarkerSize', 5, 'MarkerFaceColor','r');
 end
-plot(0, 3, 'sb','MarkerSize', 5, 'MarkerFaceColor','b');
+p3 = plot(0, 3, 'sb','MarkerSize', 5, 'MarkerFaceColor','b');
+legend([p1, p2, p3], 'trajectory', 'initial pos', 'final pos')
 hold off; grid on;
 xlabel('x [m]'); ylabel('z [m]'); grid on; hold off; 
-title('Monte Carlo Sim');
+title('Trajectory control: Monte Carlo Sim');
